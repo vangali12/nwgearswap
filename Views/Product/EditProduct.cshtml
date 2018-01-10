@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Product/EditProduct.css">
+    <title>Document</title>
+</head>
+<body class="container-fluid">
+    <header class="container-fluid">
+        <div class="row top-row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 iconPic">
+                <img src="~/images/Store/logo.jpg" alt="MountainLogo">
+            </div>
+            <div class="col-md-8">
+                <nav class="topNav">
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+                <nav class="bottomNav">
+                    <ul class="navbar-toggle">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/profile/@ViewBag.currentUser.userid">Profile</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li> 
+                            @if (@ViewBag.NewMessageCount > 0) {
+                                <a href="/messages">Messages @ViewBag.NewMessageCount</a>
+                            } else {
+                                <a href="/messages">Messages</a>
+                            }
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 leftSide">
+        @model ecommerce.Models.ProductViewModel
+        <form asp-controller="Product" enctype="multipart/form-data" asp-action="EditProductPost" asp-route-num="@ViewBag.Product.productid" method="post">
+                <p><span asp-validation-for="Name"></span></p>
+                <p><label asp-for="Name">Name:</label>
+                <input value="@ViewBag.Product.Name" asp-for="Name"/></p>
+
+                <p>Current Photo:</p>
+                <div class="imageSquare">
+                @if (@ViewBag.Product.Image == null) {
+                    <img src="~/images/Product/blankProduct.jpg" alt="Profile Picture">
+                } else {
+                    <img class="profilePic" src="~/images/Product/@ViewBag.Product.productid/@ViewBag.Product.Image" alt="Profile Picture">
+                }
+                </div>
+                <p><span asp-validation-for="Image"></span></p>
+                <p><label asp-for="Image">Upload Photo:</label></p>
+                <p><input asp-for="Image"></p>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12  rightSide">
+                <p><span asp-validation-for="Description"></span></p>
+                <p><label asp-for="Description">Description:</label></p>
+                <p><textarea cols="60" rows="4" asp-for="Description"/>@ViewBag.Product.Description</textarea></p>
+                
+                <p><span asp-validation-for="Quantity"></span></p>
+                <p><label asp-for="Quantity">Initial Quantity:</label>
+                <input value="@ViewBag.Product.Quantity" asp-for="Quantity"/></p>
+
+                <p><label asp-for="Categories">Categories:</label></p>
+                
+                @if (@ViewBag.Product.Categories.CampHike) {
+                    <input type="checkbox" asp-for="Categories.CampHike" name="CampHike" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.CampHike" name="CampHike" value="true">
+                }
+                <label asp-for="Categories.CampHike">Camp & Hike</label>
+                
+                @if (@ViewBag.Product.Categories.Climb) {
+                    <input type="checkbox" asp-for="Categories.Climb" name="Climb" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Climb" name="Climb" value="true">
+                }
+                <label asp-for="Categories.Climb">Climb</label>
+
+                @if (@ViewBag.Product.Categories.Cycle) {
+                    <input type="checkbox" asp-for="Categories.Cycle" name="Cycle" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Cycle" name="Cycle" value="true">
+                }
+                <label asp-for="Categories.Cycle">Cycle</label>
+
+                @if (@ViewBag.Product.Categories.Paddle) {
+                    <input type="checkbox" asp-for="Categories.Paddle" name="Paddle" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Paddle" name="Paddle" value="true">
+                }
+                <label asp-for="Categories.Paddle">Paddle</label>
+
+                @if (@ViewBag.Product.Categories.Run) {
+                    <input type="checkbox" asp-for="Categories.Run" name="Run" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Run" name="Run" value="true">
+                }
+                <label asp-for="Categories.Run">Run</label>
+
+                @if (@ViewBag.Product.Categories.Snow) {
+                    <input type="checkbox" asp-for="Categories.Snow" name="Snow" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Snow" name="Snow" value="true">
+                }
+                <label asp-for="Categories.Snow">Snow</label>
+
+                @if (@ViewBag.Product.Categories.Travel) {
+                    <input type="checkbox" asp-for="Categories.Travel" name="Travel" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Travel" name="Travel" value="true">
+                }
+                <label asp-for="Categories.Travel">Travel</label>
+
+                @if (@ViewBag.Product.Categories.Men) {
+                    <input type="checkbox" asp-for="Categories.Men" name="Men" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Men" name="Men" value="true">
+                }
+                <label asp-for="Categories.Men">Men's Wear</label>
+
+                @if (@ViewBag.Product.Categories.Women) {
+                    <input type="checkbox" asp-for="Categories.Women" name="Women" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Women" name="Women" value="true">
+                }
+                <label asp-for="Categories.Women">Women's Wear</label>
+
+                @if (@ViewBag.Product.Categories.Kids) {
+                    <input type="checkbox" asp-for="Categories.Kids" name="Kids" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.Kids" name="Kids" value="true">
+                }
+                <label asp-for="Categories.Kids">Kid's Wear</label>
+
+                @if (@ViewBag.Product.Categories.BooksMaps) {
+                    <input type="checkbox" asp-for="Categories.BooksMaps" name="BooksMaps" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.BooksMaps" name="BooksMaps" value="true">
+                }
+                <label asp-for="Categories.BooksMaps">Books & Maps</label>
+
+                @if (@ViewBag.Product.Categories.ArtPhotography) {
+                    <input type="checkbox" asp-for="Categories.ArtPhotography" name="ArtPhotography" value="true" checked>
+                } else {
+                    <input type="checkbox" asp-for="Categories.ArtPhotography" name="ArtPhotography" value="true">
+                }
+                <label asp-for="Categories.ArtPhotography">Art & Photography</label>
+
+                <p><button type="submit">Edit</button></p>
+            </div>
+        </form>
+    </div>
+    </section>
+    <footer class="container">
+        <p>About This Site | <a href="http://www.alisamarie.me">Meet the Creator</a></p>
+    </footer>
+</body>
+</html>

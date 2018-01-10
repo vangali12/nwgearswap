@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+    line-height: 15pt;
+}
+
+section {
+    padding-top: 2%;
+}
+
+footer {
+    width: 90%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: 0.5px solid rgb(212,210,211);
+    text-align: center;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.top-row {
+    background-color: rgb(242,240,241);
+    border-radius: 5px;
+}
+
+.iconPic {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.iconPic img {
+    width: 65%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: fill;
+}
+
+nav.topNav {
+    width: 97%;
+    height: 62%;
+    text-align: right;
+    padding-bottom: 0px;
+}
+
+nav.topNav ul {
+    margin-bottom: 0.25em;
+}
+
+nav.topNav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+
+nav.bottomNav {
+    width: 97%;
+    height: 38%;
+    border-top: 2px solid rgb(212,210,211);
+    margin: 0;
+}
+
+nav.bottomNav ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0.2%;
+    margin-right: 2%;
+}
+
+nav.bottomNav ul li a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: rgb(162,160,161);
+    font-weight: 200;
+    margin: 0 10px;
+}
+
+nav.bottomNav ul li a,
+nav.bottomNav ul li a:after,
+nav.bottomNav ul li a:before {
+    transition: all .5s;
+}
+
+nav.bottomNav ul li a:hover {
+    color: #555;
+}
+
+.profilePic{
+    width: 15vw;
+    height: 15vw;
+    overflow: hidden;
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.profilePic img {
+    max-width: 100%;
+    max-height: auto;
+    object-fit: cover;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+}
+
+.leftSide {
+    text-align: left;
+    padding: 2% 5% 2% 0;
+}
+
+.rightSide {
+    display: inline-block;
+    width: 100%;
+    padding: 2% 0 2% 5%;
+    border-left: 1px solid rgb(162,160,161);
+}

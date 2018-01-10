@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Store/Dashboard.css">
+    <title>Dashboard</title>
+</head>
+<body class="container-fluid">
+    <header class="container-fluid">
+        <div class="row top-row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 iconPic">
+                <img src="~/images/Store/logo.jpg" alt="MountainLogo">
+            </div>
+            <div class="col-md-8">
+                <nav class="topNav">
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+                <nav class="bottomNav">
+                    <ul class="navbar-toggle">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/profile/@ViewBag.currentUser.userid">Profile</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li> 
+                            @if (@ViewBag.NewMessageCount > 0) {
+                                <a href="/messages">Messages @ViewBag.NewMessageCount</a>
+                            } else {
+                                <a href="/messages">Messages</a>
+                            }
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </header>
+    <section class="container">
+    <div class="row mx-auto">
+        <div class="col-md-12">
+            <h3>Recently Added Products In Your Area:</h3>
+            <div class="center">
+            @if (@ViewBag.TopProducts.Count < 1) {
+                <h4>There are no products on sale in your region</h4>
+            } else if (@ViewBag.currentUser.Region == null) {
+                <h4>Please enter a region to see new products</h4>
+            } else {
+                @foreach (var product in @ViewBag.TopProducts) {
+                    <div class="dashProductSquare">
+                        <div class="dashImageSquare">
+                            @if (@product.Image == null) {
+                                <img src="~/images/Product/blankProduct.jpg">
+                            } else {
+                                <img src="~/images/Product/@product.productid/productPic.jpg">
+                            }
+                        </div>
+                        <p><a href="/product/@product.productid">@product.Name</a></p>
+                        @if (@product.userid == @ViewBag.currentUserId) {
+                            <a href="/editProduct/@product.productid">Edit</a>
+                            <a href="/deleteProduct/@product.productid">Delete</a>
+                        }
+                    </div>
+                }
+            }
+            </div>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-md-12">
+            <h3>New Users In Your Area:</h3>
+            <div class="center">
+            @if (@ViewBag.NewUsers.Count < 1) {
+                <h4>There are no new users in your region.</h4>
+            } else if (@ViewBag.currentUser.Region == null) {
+                <h4>Please enter a region to see new users</h4>
+            } else {
+                @foreach (var person in @ViewBag.NewUsers) {
+                    <div class="dashUserSquare">
+                        <div class="dashProfilePic">
+                            @if (@person.Image == null) {
+                                <img src="~/images/User/blankUser.png">
+                            } else {
+                                <img src="~/images/User/@person.userid/UserProfilePic.jpg">
+                            }
+                        </div>
+                        <p><a href="/profile/@person.userid">@person.FirstName @person.LastName</a></p>
+                    </div>
+                }
+            }
+            </div>
+        </div>
+    </div>
+    </section>
+    <footer class="container">
+        <p>About This Site | <a href="http://www.alisamarie.me">Meet the Creator</a></p>
+    </footer>
+</body>
+</html>

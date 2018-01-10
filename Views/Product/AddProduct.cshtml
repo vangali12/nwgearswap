@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Store/Dashboard.css">
+    <title>Products</title>
+</head>
+<body class="container">
+    <header class="container-fluid">
+        <div class="row top-row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 iconPic">
+                <img src="~/images/Store/logo.jpg" alt="MountainLogo">
+            </div>
+            <div class="col-md-8">
+                <nav class="topNav">
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+                <nav class="bottomNav">
+                    <ul class="navbar-toggle">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/profile/@ViewBag.currentUser.userid">Profile</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li> 
+                            @if (@ViewBag.NewMessageCount > 0) {
+                                <a href="/messages">Messages @ViewBag.NewMessageCount</a>
+                            } else {
+                                <a href="/messages">Messages</a>
+                            }
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </header>
+    <h1>Add a Product:</h1>
+    @model ecommerce.Models.ProductViewModel
+    <form asp-controller="Product" enctype="multipart/form-data" asp-action="CreateProduct" method="post">
+
+        <p><span asp-validation-for="Name"></span></p>
+        <p><label asp-for="Name">Name:</label>
+        <input asp-for="Name"/></p>
+
+        <p><span asp-validation-for="Image"></span></p>
+        <p><label asp-for="Image">Upload Photo:</label></p>
+        <p><input asp-for="Image"></p>
+
+        <p><span asp-validation-for="Description"></span></p>
+        <p><label asp-for="Description">Description:</label></p>
+        <p><textarea cols="60" rows="4" asp-for="Description"/></textarea></p>
+
+        <p><label asp-for="Categories">Category:</label></p>
+        
+        <input type="checkbox" asp-for="Categories.CampHike" name="CampHike" value="true"><label asp-for="Categories.CampHike">Camp & Hike</label>
+        
+        <input type="checkbox" asp-for="Categories.Climb" name="Climb" value="true"><label asp-for="Categories.Climb">Climb</label>
+
+        <input type="checkbox" asp-for="Categories.Cycle" name="Cycle" value="true"><label asp-for="Categories.Cycle">Cycle</label>
+
+        <input type="checkbox" asp-for="Categories.Paddle" name="Paddle" value="true"><label asp-for="Categories.Paddle">Paddle</label>
+
+        <input type="checkbox" asp-for="Categories.Run" name="Run" value="true"><label asp-for="Categories.Run">Run</label>
+
+        <input type="checkbox" asp-for="Categories.Snow" name="Snow" value="true"><label asp-for="Categories.Snow">Snow</label>
+
+        <input type="checkbox" asp-for="Categories.Travel" name="Travel" value="true"><label asp-for="Categories.Travel">Travel</label>
+
+        <input type="checkbox" asp-for="Categories.Men" name="Men" value="true"><label asp-for="Categories.Men">Men's Wear</label>
+
+        <input type="checkbox" asp-for="Categories.Women" name="Women" value="true"><label asp-for="Categories.Women">Women's Wear</label>
+
+        <input type="checkbox" asp-for="Categories.Kids" name="Kids" value="true"><label asp-for="Categories.Kids">Kid's Wear</label>
+
+        <input type="checkbox" asp-for="Categories.BooksMaps" name="BooksMaps" value="true"><label asp-for="Categories.BooksMaps">Books & Maps</label>
+
+        <input type="checkbox" asp-for="Categories.ArtPhotography" name="ArtPhotography" value="true"><label asp-for="Categories.ArtPhotography">Art & Photography</label>
+        
+        <p><span asp-validation-for="Quantity"></span></p>
+        <p><label asp-for="Quantity">Initial Quantity:</label>
+        <input asp-for="Quantity"/></p>
+
+        <p><span asp-validation-for="Price"></span></p>
+        <p><label asp-for="Price">Price:</label>
+        <input asp-for="Price"/></p>
+
+        <button type="submit">Create</button>
+    </form>
+    <footer class="container">
+        <p>About This Site | <a href="http://www.alisamarie.me">Meet the Creator</a></p>
+    </footer>
+</body>
+</html>

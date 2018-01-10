@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Product/DisplayProduct.css">
+    <title>Products</title>
+</head>
+<body class="container-fluid">
+    <header class="container-fluid">
+        <div class="row top-row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 iconPic">
+                <img src="~/images/Store/logo.jpg" alt="MountainLogo">
+            </div>
+            <div class="col-md-8">
+                <nav class="topNav">
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+                <nav class="bottomNav">
+                    <ul class="navbar-toggle">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/profile/@ViewBag.currentUser.userid">Profile</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li> 
+                            @if (@ViewBag.NewMessageCount > 0) {
+                                <a href="/messages">Messages @ViewBag.NewMessageCount</a>
+                            } else {
+                                <a href="/messages">Messages</a>
+                            }
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-7">
+            <h1>@ViewBag.CurrentProduct.Name</h1>
+            <h3>@ViewBag.CurrentProduct.Description</h3>
+            @if (@ViewBag.CurrentProduct.Quantity > 0) {
+                <p>Price: $@ViewBag.CurrentProduct.Price</p>
+                <p>@ViewBag.CurrentProduct.Quantity left</p>
+            }
+            <p>Seller: <a href="/profile/@ViewBag.CurrentProduct.Seller.userid">@ViewBag.CurrentProduct.Seller.FirstName @ViewBag.CurrentProduct.Seller.LastName</a></p>
+            @if (@ViewBag.CurrentProduct.Quantity > 0) {
+                @model ecommerce.Models.MessageViewModel
+                
+                <hr>
+                
+                <form asp-controller="Message" asp-action="CreateMessage" asp-route-num=@ViewBag.CurrentProduct.productid method="post">
+                    
+                    <p><span asp-validation-for="Title"></span></p>
+                    <p><label asp-for="Title">Title:</label></p>
+                    <p><input asp-for="Title"></p>
+
+                    <p><span asp-validation-for="Content"></span></p>
+                    <p><label asp-for="Content">Message:</label></p>
+                    <textarea rows="6" cols="60" asp-for="Content"></textarea>
+
+                    <p></p>
+
+                    <p><button type="submit">Send Message</button></p>
+                </form>
+            }
+            </div>
+            <div class="col-md-5 text-center mx-auto">
+                <div class="imageSquare">
+                    @if (@ViewBag.CurrentProduct.Image == null) {
+                        <img src="~/images/Product/blankProduct.jpg">
+                    } else {
+                        <img src="~/images/Product/@ViewBag.CurrentProduct.productid/productPic.jpg">
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+        <p>About This Site | <a href="http://www.alisamarie.me">Meet the Creator</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\bin\Debug\netcoreapp1.1\ecommerce.deps.json
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\bin\Debug\netcoreapp1.1\ecommerce.runtimeconfig.json
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\bin\Debug\netcoreapp1.1\ecommerce.runtimeconfig.dev.json
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\bin\Debug\netcoreapp1.1\ecommerce.dll
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\bin\Debug\netcoreapp1.1\ecommerce.pdb
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.csproj.CoreCompileInputs.cache
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.AssemblyInfo.cs
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.dll
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.pdb

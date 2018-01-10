@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Profile/EditProfile.css">
+    <title>Customer Profile</title>
+</head>
+<body class="container-fluid">
+    <header class="container-fluid">
+        <div class="row top-row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 iconPic">
+                <img src="~/images/Store/logo.jpg" alt="MountainLogo">
+            </div>
+            <div class="col-md-8">
+                <nav class="topNav">
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+                <nav class="bottomNav">
+                    <ul class="navbar-toggle">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/profile/@ViewBag.currentUser.userid">Profile</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li> 
+                            @if (@ViewBag.NewMessageCount > 0) {
+                                <a href="/messages">Messages @ViewBag.NewMessageCount</a>
+                            } else {
+                                <a href="/messages">Messages</a>
+                            }
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-4 leftSide">
+                @model ecommerce.Models.UserEditModel
+                <form asp-controller="Profile" enctype="multipart/form-data" asp-action="EditUser" asp-route-num="@ViewBag.currentUser.userid" method="post">
+                <p>Current Photo:</p>
+                    <div class="profilePic">
+                    @if (@ViewBag.currentUser.Image == null) {
+                        <img src="~/images/User/blankUser.png" alt="Profile Picture">
+                    } else {
+                        <img class="profilePic" src="~/images/User/@ViewBag.currentUser.userid/@ViewBag.currentUser.Image" alt="Profile Picture">
+                    }
+                </div>
+                <p><span asp-validation-for="imageFile"></span></p>
+                <p><label asp-for="imageFile">Upload Photo:</label></p>
+                <p><input asp-for="imageFile"></p>
+            </div>
+            <div class="col-md-8 rightSide">
+                    <p><span asp-validation-for="FirstName"></span></p>
+                    <p><label asp-for="FirstName">First Name:</label></p>
+                    <p><input asp-for="FirstName" value="@ViewBag.currentUser.FirstName"></p>
+
+                    <p><span asp-validation-for="LastName"></span></p>
+                    <p><label asp-for="LastName">Last Name:</label></p>
+                    <p><input asp-for="LastName" value="@ViewBag.currentUser.LastName"></p>
+
+                    <p><span asp-validation-for="City"></span></p>
+                    <p><label asp-for="City">City:</label></p>
+                    <p><input asp-for="City" value="@ViewBag.currentUser.City"></p>
+
+                    <p><span asp-validation-for="Region"></span></p>
+                    <p><label asp-for="Region">Region:</label></p>
+                    <p><select asp-for="Region" value="@ViewBag.currentUser.Region">
+                        @foreach (string item in @ViewBag.Regions) {
+                            @if (@ViewBag.currentUser.Region == item) {
+                                <option value="@item" selected="selected">@item</option>
+                            } else {
+                                <option value="@item">@item</option>
+                            }
+                        }
+                    </select></p>
+                    
+                    <p><label asp-for="Interests">Interests:</label></p>
+                    
+                    @if (@ViewBag.currentUser.Interests.CampHike) {
+                        <input type="checkbox" asp-for="Interests.CampHike" name="CampHike" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.CampHike" name="CampHike" value="true">
+                    }
+                    <label asp-for="Interests.CampHike">Camp & Hike</label>
+                    
+                    @if (@ViewBag.currentUser.Interests.Climb) {
+                        <input type="checkbox" asp-for="Interests.Climb" name="Climb" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Climb" name="Climb" value="true">
+                    }
+                    <label asp-for="Interests.Climb">Climb</label>
+
+                    @if (@ViewBag.currentUser.Interests.Cycle) {
+                        <input type="checkbox" asp-for="Interests.Cycle" name="Cycle" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Cycle" name="Cycle" value="true">
+                    }
+                    <label asp-for="Interests.Cycle">Cycle</label>
+
+                    @if (@ViewBag.currentUser.Interests.Paddle) {
+                        <input type="checkbox" asp-for="Interests.Paddle" name="Paddle" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Paddle" name="Paddle" value="true">
+                    }
+                    <label asp-for="Interests.Paddle">Paddle</label>
+
+                    @if (@ViewBag.currentUser.Interests.Run) {
+                        <input type="checkbox" asp-for="Interests.Run" name="Run" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Run" name="Run" value="true">
+                    }
+                    <label asp-for="Interests.Run">Run</label>
+
+                    @if (@ViewBag.currentUser.Interests.Snow) {
+                        <input type="checkbox" asp-for="Interests.Snow" name="Snow" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Snow" name="Snow" value="true">
+                    }
+                    <label asp-for="Interests.Snow">Snow</label>
+
+                    @if (@ViewBag.currentUser.Interests.Travel) {
+                        <input type="checkbox" asp-for="Interests.Travel" name="Travel" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Travel" name="Travel" value="true">
+                    }
+                    <label asp-for="Interests.Travel">Travel</label>
+
+                    @if (@ViewBag.currentUser.Interests.Men) {
+                        <input type="checkbox" asp-for="Interests.Men" name="Men" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Men" name="Men" value="true">
+                    }
+                    <label asp-for="Interests.Men">Men's Wear</label>
+
+                    @if (@ViewBag.currentUser.Interests.Women) {
+                        <input type="checkbox" asp-for="Interests.Women" name="Women" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Women" name="Women" value="true">
+                    }
+                    <label asp-for="Interests.Women">Women's Wear</label>
+
+                    @if (@ViewBag.currentUser.Interests.Kids) {
+                        <input type="checkbox" asp-for="Interests.Kids" name="Kids" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.Kids" name="Kids" value="true">
+                    }
+                    <label asp-for="Interests.Kids">Kid's Wear</label>
+
+                    @if (@ViewBag.currentUser.Interests.BooksMaps) {
+                        <input type="checkbox" asp-for="Interests.BooksMaps" name="BooksMaps" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.BooksMaps" name="BooksMaps" value="true">
+                    }
+                    <label asp-for="Interests.BooksMaps">Books & Maps</label>
+
+                    @if (@ViewBag.currentUser.Interests.ArtPhotography) {
+                        <input type="checkbox" asp-for="Interests.ArtPhotography" name="ArtPhotography" value="true" checked>
+                    } else {
+                        <input type="checkbox" asp-for="Interests.ArtPhotography" name="ArtPhotography" value="true">
+                    }
+                    <label asp-for="Interests.ArtPhotography">Art & Photography</label>
+
+                    <p><label>About Me:</label></p>
+                    <textarea rows="6" cols="60" name="desc">@ViewBag.currentUser.Description</textarea>
+
+                    <p><button type="submit">Update</button></p>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+        <p>About This Site | <a href="http://www.alisamarie.me">Meet the Creator</a></p>
+    </footer>
+</body>
+</html>
