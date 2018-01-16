@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ecommerce.Controllers
 {
@@ -62,7 +63,8 @@ namespace ecommerce.Controllers
             } else {
                 if (ModelState.IsValid) {
                     int userNum = _context.Users.Max(w => w.userid) + 1;
-
+                    PasswordHasher<UserViewModel> Hasher =  new PasswordHasher<UserViewModel>();
+                    model.Password = Hasher.HashPassword(model, model.Password);
                     User NewUser = new User();
                     NewUser.FirstName = model.FirstName;
                     NewUser.LastName = model.LastName;
@@ -89,9 +91,10 @@ namespace ecommerce.Controllers
         public IActionResult Login(string loginEmail, string loginPassword)
         {
             User CheckUser = _context.Users.SingleOrDefault(user => user.Email == loginEmail);
+            PasswordHasher<User> Hasher = new PasswordHasher<User>();
             if (CheckUser == null) {
                 ViewBag.EmailExist = "This email does not exist. Please register.";
-            } else if (CheckUser.Password != loginPassword) {
+            } else if (Hasher.VerifyHashedPassword(CheckUser, CheckUser.Password, loginPassword) == 0) {
                 ViewBag.PassMatch = "Your password is incorrect.";
             } else {
                 User current = _context.Users.SingleOrDefault(user => user.Email == loginEmail);
