@@ -1062,10 +1062,10 @@
           "lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/1.1.0": {
+      "Microsoft.Extensions.Configuration.Binder/1.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "1.1.0",
+          "Microsoft.Extensions.Configuration": "1.1.2",
           "NETStandard.Library": "1.6.1",
           "System.ComponentModel.TypeConverter": "4.3.0"
         },
@@ -1338,13 +1338,13 @@
           "lib/netstandard1.0/Microsoft.Extensions.Options.dll": {}
         }
       },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/1.1.0": {
+      "Microsoft.Extensions.Options.ConfigurationExtensions/1.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "1.1.0",
-          "Microsoft.Extensions.Configuration.Binder": "1.1.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
-          "Microsoft.Extensions.Options": "1.1.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.1.2",
+          "Microsoft.Extensions.Configuration.Binder": "1.1.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.1",
+          "Microsoft.Extensions.Options": "1.1.2",
           "NETStandard.Library": "1.6.1"
         },
         "compile": {
@@ -4839,14 +4839,14 @@
         "microsoft.extensions.configuration.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration.Binder/1.1.0": {
-      "sha512": "1dTFEL493MfC5O7MNaElQBhX4txb9ivSmTMwB3qDqEJHXnnUdgThTChn32FjhLIA6Fn7YXjqkZzAB/LdZEKupw==",
+    "Microsoft.Extensions.Configuration.Binder/1.1.2": {
+      "sha512": "eMkrpEwzpvDbBViM017oz9+xHaouwhKZjsFRPG6a3eG8v0VIIBou6jqmRnG982h0FsIV+HzA54FI9Uhrq7gleA==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.binder/1.1.0",
+      "path": "microsoft.extensions.configuration.binder/1.1.2",
       "files": [
         "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/netstandard1.1/Microsoft.Extensions.Configuration.Binder.xml",
-        "microsoft.extensions.configuration.binder.1.1.0.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.1.1.2.nupkg.sha512",
         "microsoft.extensions.configuration.binder.nuspec"
       ]
     },
@@ -5078,14 +5078,14 @@
         "microsoft.extensions.options.nuspec"
       ]
     },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/1.1.0": {
-      "sha512": "loehh0znbtZw+mqk2VY7VyJu7t7N2TvEjSpln0Twkli/rF26HcxWQ3rdSvSr66yOCt7Dnur6DcW6HWXfa2u/PA==",
+    "Microsoft.Extensions.Options.ConfigurationExtensions/1.1.2": {
+      "sha512": "ERSWWONUQWX1SHt2ufBv9FEJ1ui4tQt2WOYswfgDAuLYNq2nmsG+0V1DCO3g+2UUNhPL/iZcbNFNLfxNiCNVXg==",
       "type": "package",
-      "path": "microsoft.extensions.options.configurationextensions/1.1.0",
+      "path": "microsoft.extensions.options.configurationextensions/1.1.2",
       "files": [
         "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
         "lib/netstandard1.1/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
-        "microsoft.extensions.options.configurationextensions.1.1.0.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.1.1.2.nupkg.sha512",
         "microsoft.extensions.options.configurationextensions.nuspec"
       ]
     },
@@ -10432,7 +10432,7 @@
       "Microsoft.AspNetCore.Session >= 1.1.0",
       "Microsoft.AspNetCore.StaticFiles >= 1.1.3",
       "Microsoft.Extensions.Logging.Debug >= 1.1.2",
-      "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.1.0",
+      "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.1.2",
       "Microsoft.NETCore.App >= 1.1.2",
       "MySql.Data.EntityFrameworkCore >= 7.0.7-*",
       "microsoft.aspnetcore.identity >= 1.1.3"
@@ -10451,59 +10451,67 @@
       "outputPath": "C:\\Users\\Alisa Marie\\Desktop\\DojoAssignments\\netCore\\aspNetCore\\ecommerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alisa Marie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Alisa Marie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
       "netcoreapp1.1": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "1.1.2",
-            "autoReferenced": true
-          },
           "Microsoft.AspNetCore": {
             "target": "Package",
-            "version": "1.1.4"
-          },
-          "microsoft.aspnetcore.identity": {
-            "target": "Package",
-            "version": "1.1.3"
+            "version": "[1.1.4, )"
           },
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",
-            "version": "1.1.4"
+            "version": "[1.1.4, )"
           },
           "Microsoft.AspNetCore.Session": {
             "target": "Package",
-            "version": "1.1"
+            "version": "[1.1.0, )"
           },
           "Microsoft.AspNetCore.StaticFiles": {
             "target": "Package",
-            "version": "1.1.3"
+            "version": "[1.1.3, )"
           },
           "Microsoft.Extensions.Logging.Debug": {
             "target": "Package",
-            "version": "1.1.2"
+            "version": "[1.1.2, )"
           },
           "Microsoft.Extensions.Options.ConfigurationExtensions": {
             "target": "Package",
-            "version": "1.1"
+            "version": "[1.1.2, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[1.1.2, )",
+            "autoReferenced": true
           },
           "MySql.Data.EntityFrameworkCore": {
             "target": "Package",
-            "version": "7.0.7-*"
+            "version": "[7.0.7-*, )"
+          },
+          "microsoft.aspnetcore.identity": {
+            "target": "Package",
+            "version": "[1.1.3, )"
           }
         },
         "imports": [
@@ -10511,17 +10519,5 @@
         ]
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Microsoft.Extensions.Options.ConfigurationExtensions from 1.1.2 to 1.1. Reference the package directly from the project to select a different version. \r\n ecommerce (>= 1.0.0) -> Microsoft.AspNetCore (>= 1.1.4) -> Microsoft.Extensions.Options.ConfigurationExtensions (>= 1.1.2) \r\n ecommerce (>= 1.0.0) -> Microsoft.Extensions.Options.ConfigurationExtensions (>= 1.1.0)",
-      "libraryId": "Microsoft.Extensions.Options.ConfigurationExtensions",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v1.1"
-      ]
-    }
-  ]
+  }
 }

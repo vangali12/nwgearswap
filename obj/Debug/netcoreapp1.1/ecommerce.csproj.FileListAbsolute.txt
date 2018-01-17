@@ -7,3 +7,4 @@ C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\De
 C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.AssemblyInfo.cs
 C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.dll
 C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.pdb
+C:\Users\Alisa Marie\Desktop\DojoAssignments\netCore\aspNetCore\ecommerce\obj\Debug\netcoreapp1.1\ecommerce.AssemblyInfoInputs.cache
