@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
-using System.Drawing;
 
 namespace ecommerce.Controllers
 {
