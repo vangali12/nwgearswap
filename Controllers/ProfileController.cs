@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Drawing;
 
 namespace ecommerce.Controllers
 {
@@ -68,6 +69,39 @@ namespace ecommerce.Controllers
         }
 
 // ***************************************** POSTS ***************************************** //
+
+        // [HttpPost]
+        // public IActionResult UploadImage(IFormFile file)
+
+        // {
+        //     int? c = HttpContext.Session.GetInt32("current");
+        //     if (c == null) {
+        //         return RedirectToAction("Index", "Home");
+        //     }
+        //     int currentUserId = (int)c;
+        //     if (ModelState.IsValid) 
+        //     {
+        //         if (file == null || file.ContentType.ToLower().StartsWith("image/")) 
+        //         { 
+        //             MemoryStream ms = new MemoryStream(); 
+        //             file.OpenReadStream().CopyTo(ms); 
+
+        //             System.Drawing.Image image = System.Drawing.Image.FromStream(ms); 
+
+        //             Image imageEntity = new Image();
+        //             imageEntity.imageid = currentUserId;
+        //             imageEntity.Name = image.Name; 
+        //             imageEntity.Data = ms.ToArray(); 
+        //             imageEntity.Width = image.Width;
+        //             imageEntity.Height = image.Height;
+        //             imageEntity.ContentType = image.ContentType;
+
+        //             _context.Images.Add(imageEntity); 
+        //             _context.SaveChanges();
+        //         }
+        //     }
+        //     return RedirectToAction("DisplayProfile");
+        // }
 
         [HttpPost]
         [Route("editProfile/{num}")]
@@ -136,6 +170,5 @@ namespace ecommerce.Controllers
             }
             return View("EditProduct", new { num = num });
         }
-
     }
 }

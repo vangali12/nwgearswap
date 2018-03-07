@@ -15,6 +15,8 @@ namespace ecommerce.Models
         public User Seller { get; set; }
         public int categoryid { get; set; }
         public Category Categories { get; set; }
+        // public int imageid { get; set; }
+        // public Image ProductImage { get; set; }
         public Product()
         { 
             Categories = new Category();

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Caching.Memory;
 using ecommerce.Models;
 using MySQL.Data.EntityFrameworkCore;
 using MySQL.Data.EntityFrameworkCore.Extensions;
@@ -30,8 +32,9 @@ namespace ecommerce
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSession();
             services.AddDbContext<ecommerceContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
+            services.AddDistributedMemoryCache();
+            services.AddSession(o => {o.IdleTimeout = TimeSpan.FromMinutes(20); });
             services.AddMvc();
         }
 

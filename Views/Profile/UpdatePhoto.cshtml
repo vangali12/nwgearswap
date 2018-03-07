@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form asp-controller="Profile" enctype="multipart/form-data" asp-action="EditUser" asp-route-num="@ViewBag.currentUser.userid" method="post">
+        @model ecommerce.Models.UserEditModel
+        <p><span asp-validation-for="imageFile"></span></p>
+        <p><label asp-for="imageFile">Upload Photo:</label></p>
+        <p><input asp-for="imageFile"></p>
+
+        <input type="hidden" asp-for="FirstName" value="@ViewBag.currentUser.FirstName">
+        <input type="hidden" asp-for="LastName" value="@ViewBag.currentUser.LastName">
+        <input type="hidden" asp-for="City" value="@ViewBag.currentUser.City">
+        <input type="hidden" asp-for="Region" value="@ViewBag.currentUser.Region">
+
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.CampHike" value="@ViewBag.currentUser.Interests.CampHike">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Climb" value="@ViewBag.currentUser.Interests.Climb">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Cycle" value="@ViewBag.currentUser.Interests.Cycle">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Paddle" value="@ViewBag.currentUser.Interests.Paddle">
+        <input type="hidden" asp-for="Interests.Run" value="@ViewBag.currentUser.Interests.Run">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Snow" value="@ViewBag.currentUser.Interests.Snow">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Travel" value="@ViewBag.currentUser.Interests.Travel">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Men" value="@ViewBag.currentUser.Interests.Men">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Women" value="@ViewBag.currentUser.Interests.Women">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Kids" value="@ViewBag.currentUser.Interests.Kids">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.Maps" value="@ViewBag.currentUser.Interests.BooksMaps">
+        <input type="hidden" asp-for="@ViewBag.currentUser.Interests.ArtPhotography" value="@ViewBag.currentUser.Interests.ArtPhotography">
+    </form>
+</body>
+</html>

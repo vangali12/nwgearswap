@@ -11,5 +11,6 @@ namespace ecommerce.Models
         public DbSet <Message> Messages { get; set; }
         public DbSet <Interest> Interests { get; set; }
         public DbSet <Category> Categories { get; set; }
+        public DbSet <Image> Images { get; set; }
     }
 }

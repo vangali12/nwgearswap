@@ -18,6 +18,8 @@ namespace ecommerce.Models
         public string Region { get; set; }
         public int interestid { get; set; }
         public Interest Interests { get; set; }
+        // public int imageid { get; set; }
+        // public Image ProfileImage { get; set; }
 
         public User()
         {
