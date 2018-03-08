@@ -48,9 +48,9 @@
                 <p>Current Photo:</p>
                     <div class="profilePic">
                     @if (@ViewBag.currentUser.Image == null) {
-                        <img src="~/images/User/blankUser.png" alt="Profile Picture">
+                        <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/blankUser.png" alt="Profile Picture">
                     } else {
-                        <img class="profilePic" src="~/images/User/@ViewBag.currentUser.userid/@ViewBag.currentUser.Image" alt="Profile Picture">
+                        <img class="profilePic" src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/user_@(ViewBag.currentUser.userid).jpg" alt="Profile Picture">
                     }
                 </div>
                 <p><span asp-validation-for="imageFile"></span></p>

@@ -90,7 +90,6 @@ namespace ecommerce.Controllers
         [Route("login")]
         public IActionResult Login(string loginEmail, string loginPassword)
         {
-            System.Console.WriteLine("HITTING LOGIN");
             User CheckUser = _context.Users.SingleOrDefault(user => user.Email == loginEmail);
             PasswordHasher<User> Hasher = new PasswordHasher<User>();
             if (CheckUser == null) {

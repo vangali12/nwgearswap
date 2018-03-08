@@ -56,7 +56,7 @@
                             @if (@product.Image == null) {
                                 <img src="~/images/Product/blankProduct.jpg">
                             } else {
-                                <img src="~/images/Product/@product.productid/productPic.jpg">
+                                <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(product.productid).jpg">
                             }
                         </div>
                         <p><a href="/product/@product.productid">@product.Name</a></p>
@@ -83,9 +83,9 @@
                     <div class="dashUserSquare">
                         <div class="dashProfilePic">
                             @if (@person.Image == null) {
-                                <img src="~/images/User/blankUser.png">
+                                <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/blankUser.png">
                             } else {
-                                <img src="~/images/User/@person.userid/UserProfilePic.jpg">
+                                <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/user_@(person.userid).jpg">
                             }
                         </div>
                         <p><a href="/profile/@person.userid">@person.FirstName @person.LastName</a></p>

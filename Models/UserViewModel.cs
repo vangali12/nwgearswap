@@ -5,7 +5,7 @@ namespace ecommerce.Models {
         [Required(ErrorMessage = "First Name is Required.")]
         [MinLength(2, ErrorMessage = "First Name must be at least 2 characters long.")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "First Name is Required.")]
+        [Required(ErrorMessage = "Last Name is Required.")]
         [MinLength(2, ErrorMessage = "Last Name must be at least 2 characters long.")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Email is Required.")]
