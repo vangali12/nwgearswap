@@ -54,7 +54,7 @@
                 @if (@ViewBag.Product.Image == null) {
                     <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/blankProduct.jpg" alt="Profile Picture">
                 } else {
-                    <img class="profilePic" src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(ViewBag.Product.productid).jpg" alt="Profile Picture">
+                    <img class="profilePic" src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(ViewBag.Product.productid)/@(ViewBag.Product.Image)" alt="Profile Picture">
                 }
                 </div>
                 <p><span asp-validation-for="Image"></span></p>
