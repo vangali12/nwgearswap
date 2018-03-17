@@ -51,7 +51,7 @@
                     @if (@ViewBag.CurrentMessage.Sender.Image == null) {
                         <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/blankUser.png">
                     } else {
-                        <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/user_@(ViewBag.CurrentMessage.Sender.userid).jpg">
+                        <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/user_@(ViewBag.CurrentMessage.Sender.userid)/@(ViewBag.currentMessage.Sender.Image)">
                     }
                     </div>
                     <a href="/profile/@ViewBag.CurrentMessage.Sender.userid">@ViewBag.CurrentMessage.Sender.FirstName @ViewBag.CurrentMessage.Sender.LastName</a>

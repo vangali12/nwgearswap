@@ -51,7 +51,7 @@
                 @if (@ViewBag.Profile.Image == null) {
                     <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/blankUser.png">
                 } else {
-                    <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/user_@(ViewBag.Profile.userid).jpg">
+                    <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/users/user_@(ViewBag.Profile.userid)/@(ViewBag.Profile.Image)">
                 }
             </div>
             @if (@ViewBag.Profile.City != null) {
@@ -113,7 +113,7 @@
                             @if (@product.Image == null) {
                                 <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/blankProduct.jpg">
                             } else {
-                                <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(product.productid).jpg">
+                                <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(product.productid)/@(product.Image)">
                             }
                         </div>
                         <p class="text-center"><a href="/product/@product.productid">@product.Name</a><p>

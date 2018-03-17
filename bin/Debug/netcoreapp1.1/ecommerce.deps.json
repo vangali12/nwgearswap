@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "9237231655cfb2a68a0d1d77be06184f4868f91f"
+    "signature": "d0ee63be4664f1dddab84bea130a62e51090eaae"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,8 @@
     ".NETCoreApp,Version=v1.1": {
       "ecommerce/1.0.0": {
         "dependencies": {
+          "AWSSDK.Core": "3.3.21.15",
+          "AWSSDK.S3": "3.3.17.1",
           "Microsoft.AspNetCore": "1.1.4",
           "Microsoft.AspNetCore.Mvc": "1.1.4",
           "Microsoft.AspNetCore.Session": "1.1.0",
@@ -38,6 +40,32 @@
         },
         "compile": {
           "ecommerce.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.3.21.15": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0",
+          "System.Net.Requests": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Security.Cryptography.Csp": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/AWSSDK.Core.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.3.17.1": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.21.15"
+        },
+        "runtime": {
+          "lib/netstandard1.3/AWSSDK.S3.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/AWSSDK.S3.dll": {}
         }
       },
       "Google.Protobuf/3.0.0": {
@@ -2966,6 +2994,9 @@
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0"
         },
+        "compile": {
+          "ref/netstandard1.3/System.Security.Cryptography.Csp.dll": {}
+        },
         "compileOnly": true
       },
       "System.Security.Cryptography.Encoding/4.3.0": {
@@ -3336,6 +3367,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.3.21.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tdGjSTmj2hZnMW70KZzv89kkFoPFoPTFheGqg2+MJNbIFBo7aFlKyeeDPrGcxq75f69FsyfB5Xe9/gLfYZpv6Q==",
+      "path": "awssdk.core/3.3.21.15",
+      "hashPath": "awssdk.core.3.3.21.15.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.3.17.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1UZ/sqHPdaMmgdNv86980Ljo7uV3KsZCQshE33Z24u9hZjOXzmCBuo5vxXPjZHtCq3MMerEinZUXWgXW/d3OHQ==",
+      "path": "awssdk.s3/3.3.17.1",
+      "hashPath": "awssdk.s3.3.3.17.1.nupkg.sha512"
     },
     "Google.Protobuf/3.0.0": {
       "type": "package",

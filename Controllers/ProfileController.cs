@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using Amazon.S3;
+using Amazon.S3.Model;
 
 namespace ecommerce.Controllers
 {
@@ -111,37 +113,6 @@ namespace ecommerce.Controllers
             }
             int currentUserId = (int)c;
             if (ModelState.IsValid) {
-                var filePath = Path.GetTempFileName();
-
-                if (model.imageFile != null) {
-                    using (var stream = new FileStream(filePath, FileMode.Create)) {
-                        System.Console.WriteLine(stream);
-                        await model.imageFile.CopyToAsync(stream);
-                    }
-
-                    string pathString = @"wwwroot\\images\\User\\" + num.ToString();
-                    if(System.IO.Directory.Exists(pathString))
-                    {
-                        try
-                        {
-                            System.IO.Directory.Delete(pathString, true);
-                        }
-
-                        catch (System.IO.IOException e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                    }
-                    System.IO.Directory.CreateDirectory(pathString);
-
-                    string fileName = "userProfilePic.jpg";
-                    pathString = System.IO.Path.Combine(pathString, fileName);
-
-                    string sourceFile = filePath;
-                    string destinationFile = pathString;
-                    System.IO.File.Move(sourceFile, destinationFile);
-                }
-
                 User editingUser = _context.Users.SingleOrDefault(p => p.userid == num);
                 editingUser.FirstName = model.FirstName;
                 editingUser.LastName = model.LastName;
@@ -160,9 +131,6 @@ namespace ecommerce.Controllers
                 editingUser.Interests.Kids = model.Interests.Kids;
                 editingUser.Interests.BooksMaps = model.Interests.BooksMaps;
                 editingUser.Interests.ArtPhotography = model.Interests.ArtPhotography;
-                if (model.imageFile != null) {
-                    editingUser.Image = "userProfilePic.jpg";
-                }
                 _context.SaveChanges();
                 return RedirectToAction("DisplayProfile", new { num = num });
             }

@@ -76,7 +76,7 @@
                     @if (@ViewBag.CurrentProduct.Image == null) {
                         <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/blankProduct.jpg">
                     } else {
-                        <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(ViewBag.CurrentProduct.productid).jpg">
+                        <img src="https://s3-us-west-2.amazonaws.com/nwgearswap/products/product_@(ViewBag.CurrentProduct.productid)/@(ViewBag.CurrentProduct.Image)">
                     }
                 </div>
             </div>
